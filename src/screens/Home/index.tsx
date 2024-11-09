@@ -6,6 +6,11 @@ export function Home() {
   function handleParticipantAdd() {
     console.log("Você clicou no botão de Adicionar!");
   }
+
+  function handleParticipantRemove(name: string) {
+    console.log(`Você clicou no botão de remover o participante ${name}!`);
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.eventName}>Nome do Evento</Text>
@@ -20,10 +25,13 @@ export function Home() {
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
       </View>
-      <Participant name="Pedro" />
-      <Participant name="Henrique" />
+      <Participant
+        name="Pedro"
+        onRemove={() => handleParticipantRemove("Pedro")}
+      />
+      {/* <Participant name="Henrique" />
       <Participant name="Diego" />
-      <Participant name="Yuri" />
+      <Participant name="Yuri" /> */}
     </View>
   );
 }
